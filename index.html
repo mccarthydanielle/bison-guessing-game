@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Danielle's Guessing Game</title>
+  <link rel="stylesheet" href="main.css">
+  <script src="../js/guessing-game.js" defer></script>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <div class="center">
+      <h1>Play the Guessing Game!</h1>
+      <h3 id="subtitle">Guess a number between 1-100!</h3>
+    </div>
+
+    <div id='guess-feedback' class='center'>
+      <h4></h4>
+    </div>
+
+    <div>
+      <div id="input-parent">
+        <input class="center" id="player-input" maxlength='3'>
+        <button id="submit">Guess!</button>
+      </div>
+
+      <div class="guesses">
+        <ul id="guess-list">
+          <li class="guess">-</li>
+          <li class="guess">-</li>
+          <li class="guess">-</li>
+          <li class="guess">-</li>
+          <li class="guess">-</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div id="bottomButtons">
+      <button id="hintButton">Hint</button>
+      <button id="resetButton">Reset</button>
+    </div>
+  </div>
+
+
+
+  <div id="footer" class="center">
+
+    <div>
+      <h4>Developed by Danielle McCarthy.</h4>
+    </div>
+
+  </div>
+  </div>
+
+</body>
+
+
+
+<script src='js/guessing-game.js'></script>
+
+</body>
+
+</html>
