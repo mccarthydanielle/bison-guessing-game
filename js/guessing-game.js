@@ -7,8 +7,6 @@ a user clicks a button or adds a guess to the input field.
 
 document.getElementById('');
 
-const generateWinningNumber = () => Math.floor(Math.random() * 100 + 1);
-
 class Game {
   constructor() {
     this.playersGuess = null;
@@ -75,10 +73,7 @@ class Game {
 
 }
 
-
-function newGame() {
-  return new Game;
-}
+const generateWinningNumber = () => Math.floor(Math.random() * 100 + 1);
 
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -90,6 +85,12 @@ function shuffle(arr) {
   return arr;
 }
 
+
+
+function newGame() {
+  return new Game;
+}
+
 //creating variables for each buttons
 const guess = document.getElementById('submit');
 const hint = document.getElementById('hintButton');
@@ -99,7 +100,7 @@ const reset = document.getElementById('resetButton');
 
 function playGame() {
   const game = new Game;
-  console.log(this.winningNumber);
+  console.log(game.winningNumber);
 
   //when the guess button is clicked
   guess.addEventListener('click', function () {
@@ -110,17 +111,18 @@ function playGame() {
   });
 
   //when the hint button is clicked
-  hint.addEventListener('click', game.provideHint);
+  hint.addEventListener('click', function () {
+    game.provideHint();
+  });
 
   //when the reset button is clicked
   reset.addEventListener('click', function () {
-
-    return new Game;
+    game = new Game;
   });
 }
 
 // start the game.
-playGame();
+// playGame();
 
 
 
