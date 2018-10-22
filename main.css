@@ -1,15 +1,17 @@
 body {
   text-align: center;
   background-color: #ffffff;
-  border: 2px #d9e840 dotted;
+  border: 2.5px #d9e840 dotted;
   font-family: 'PT Sans', sans-serif;
   margin: 10px;
 }
 
-
-
 .colorBackground {
-  background-color: #d9e840;
+  /* background-color: #d9e840; */
+  background-image:
+  linear-gradient(to right,
+    #d9e840, #e4f248
+  );
   height:190px;
   width: 75%;
   position: absolute;
@@ -42,8 +44,61 @@ top: 75px;
 margin: auto;
 font-size: 35px;
 }
+/* talk bubble stuff */
+
+/* CSS talk bubble */
+.talk-bubble {
+  margin-top: 220px;
+  left: 390px;
+  display: inline-block;
+  position: absolute;
+	width: 200px;
+	height: auto;
+	background-color: lightyellow;
+}
+
+.talk-bubble:empty {
+  display:none;
+}
+.border{
+  border: 8px solid #666;
+}
+.round{
+  border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+
+}
+
+/* Right triangle placed top right flush. */
+.tri-right.border.right-top:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -40px;
+  top: -8px;
+	bottom: auto;
+	border: 32px solid;
+	border-color: #666 transparent transparent transparent;
+}
+
+.tri-right.right-top:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -20px;
+  top: 0px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: lightyellow transparent transparent transparent;
+}
 
 
+/* end of talk bubble stuff */
 #app {
 margin-top: 300px;
 margin-bottom: 50px;
@@ -51,44 +106,40 @@ display: flex;
 flex-direction: column;
 }
 
-.guessFeedbackDiv {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-    font-size: 16px;
-  height: max-content;
-  width: max-content;
-
+#guess-feedback h4{
+  height: 20px;
+  font-size: 16px;
+  text-align: center;
 }
 
-.guessFeedbackDiv:empty {
-  border: none;
-  height: max-content;
-  width: max-content;
-  height: 21px;
-  margin-right: auto;
-  margin-left: auto;}
+/* #guess-feedback h4:empty  {
+  display:none;
+} */
+
+
+
+
+.guesses {
+  height: 200px;
+}
 
 #guess-list {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 0;
+  margin: 0;
 }
 
 .guess {
  list-style-type: none;
- text-align: center;
+ font-size: 35px;
+ flex: 1;
+ align-self: center;
+ flex-shrink: 0;
 }
 
-.guess img.resize {
-  width: 5px;
-  height: 5px;
-}
 
-.guess:empty{
-  background: lime;
-}
 
 #actualHint {
   font-size: 16px;
@@ -109,8 +160,10 @@ flex-direction: column;
 }
 
 #bottomButtons{
-  margin:auto;
+margin:0;
+
 }
+
 
 #footer h4 {
   position: relative;

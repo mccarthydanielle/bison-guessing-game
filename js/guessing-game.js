@@ -6,7 +6,9 @@ class Game {
     this.playersGuess = null;
     this.winningNumber = generateWinningNumber();
     this.pastGuesses = [];
+    this.hintGiven = false;
   }
+
 
   difference() {
     return Math.abs(this.playersGuess - this.winningNumber);
@@ -48,23 +50,22 @@ class Game {
       }
     }
 
-    if (this.isLower()) {
-      imgSrc = "pictures/lower.png"
+    if (this.isLower() === true) {
+      imgSrc = "Guess lower."
     } else {
-      imgSrc = "pictures/higher.png";
+      imgSrc = "Guess higher"
     }
 
-    document.querySelector('#guess-feedback > h4').innerHTML = feedbackText;
+    document.querySelector('#guess-feedback > h4').innerHTML = `${feedbackText}`;
     document.querySelector(`#guess-list li:nth-child(${this.pastGuesses.length})`).innerHTML = this.playersGuess
 
     return feedbackText;
   }
 
   provideHint() {
-    let hasBeenCalled = false;
 
-    if (!hasBeenCalled) {
-      hasBeenCalled = true;
+    if (this.hintGiven === false) {
+      this.hintGiven = true;
       let hintArray = [this.winningNumber];
       while (hintArray.length < 3) {
         hintArray.push(generateWinningNumber());
@@ -159,7 +160,8 @@ document.addEventListener('keyup', function (e) {
 
 //when the hint button is clicked
 hint.addEventListener('click', function () {
-  game.provideHint()
+  game.provideHint();
+
 });
 
 //when the reset button is clicked
