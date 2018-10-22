@@ -1,11 +1,5 @@
-/*
-Write your guess-game code here! Don't forget to look at the test specs as a guide. You can run the specs
-by running "testem".
-In this file, you will also include the event listeners that are needed to interact with your HTML file when
-a user clicks a button or adds a guess to the input field.
-*/
-
 document.getElementById('');
+
 
 class Game {
   constructor() {
@@ -34,8 +28,8 @@ class Game {
 
   checkGuess() {
 
-
     let feedbackText = '';
+    let imgSrc;
 
     if (this.playersGuess === this.winningNumber) {
       feedbackText = 'You Win!';
@@ -53,6 +47,13 @@ class Game {
         else feedbackText = "You're ice cold!";
       }
     }
+
+    if (this.isLower()) {
+      imgSrc = "pictures/lower.png"
+    } else {
+      imgSrc = "pictures/higher.png";
+    }
+
     document.querySelector('#guess-feedback > h4').innerHTML = feedbackText;
     document.querySelector(`#guess-list li:nth-child(${this.pastGuesses.length})`).innerHTML = this.playersGuess
 
@@ -60,20 +61,75 @@ class Game {
   }
 
   provideHint() {
-    let hintArray = [this.winningNumber];
-    while (hintArray.length < 3) {
-      hintArray.push(generateWinningNumber());
-    }
-    hintArray = shuffle(hintArray);
-    let hintSentence = `Try guessing: ${hintArray[0]}, ${hintArray[1]}, or ${hintArray[2]}.`
-    document.querySelector('#guess-feedback > h4').innerHTML = hintSentence;
+    let hasBeenCalled = false;
 
+    if (!hasBeenCalled) {
+      hasBeenCalled = true;
+      let hintArray = [this.winningNumber];
+      while (hintArray.length < 3) {
+        hintArray.push(generateWinningNumber());
+      }
+      hintArray = shuffle(hintArray);
+      let hintSentence = `Try guessing: ${hintArray[0]}, ${hintArray[1]}, or ${hintArray[2]}.`
+      document.querySelector('#hintBox > h4').innerHTML = hintSentence;
+
+    }
     return hintArray;
   }
 
 }
 
-const generateWinningNumber = () => Math.floor(Math.random() * 100 + 1);
+
+function generateWinningNumber() {
+  return Math.floor(Math.random() * 100 + 1);
+}
+
+// start the game.
+let game = newGame();
+
+function newGame() {
+
+
+
+  document.querySelector('#hintBox > h4').innerHTML = "";
+  document.querySelector('#guess-feedback > h4').innerHTML = "";
+  document.querySelector('#guess1').innerHTML = "";
+  document.querySelector('#guess2').innerHTML = "";
+  document.querySelector('#guess3').innerHTML = "";
+  document.querySelector('#guess4').innerHTML = "";
+  document.querySelector('#guess5').innerHTML = "";
+
+
+  let img = document.createElement("img");
+  img.src = "pictures/small-Bison.png";
+
+  let img2 = document.createElement("img");
+  img2.src = "pictures/small-Bison.png";
+
+  let img3 = document.createElement("img");
+  img3.src = "pictures/small-Bison.png";
+
+  let img4 = document.createElement("img");
+  img4.src = "pictures/small-Bison.png";
+
+  let img5 = document.createElement("img");
+  img5.src = "pictures/small-Bison.png";
+
+
+  let guess1 = document.getElementById("guess1");
+  let guess2 = document.getElementById("guess2")
+  let guess3 = document.getElementById("guess3")
+  let guess4 = document.getElementById("guess4")
+  let guess5 = document.getElementById("guess5")
+
+  guess1.appendChild(img);
+  guess2.appendChild(img2);
+  guess3.appendChild(img3);
+  guess4.appendChild(img4);
+  guess5.appendChild(img5);
+
+  return new Game;
+}
 
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -85,44 +141,31 @@ function shuffle(arr) {
   return arr;
 }
 
-
-
-function newGame() {
-  return new Game;
-}
-
-//creating variables for each buttons
+//creating variables for each button
 const guess = document.getElementById('submit');
 const hint = document.getElementById('hintButton');
 const reset = document.getElementById('resetButton');
+const allGuesses = document.getElementsByClassName('guess');
 
-//what actually happens when the game begins.
-
-function playGame() {
-  const game = new Game;
-  console.log(game.winningNumber);
-
-  //when the guess button is clicked
-  guess.addEventListener('click', function () {
+//when the guess button is clicked
+document.addEventListener('keyup', function (e) {
+  if (event.keyCode === 13) {
     const playersGuess = +document.querySelector('input').value;
     document.querySelector('input').value = '';
 
     game.playersGuessSubmission(playersGuess);
-  });
+  }
+});
 
-  //when the hint button is clicked
-  hint.addEventListener('click', function () {
-    game.provideHint();
-  });
+//when the hint button is clicked
+hint.addEventListener('click', function () {
+  game.provideHint()
+});
 
-  //when the reset button is clicked
-  reset.addEventListener('click', function () {
-    game = new Game;
-  });
-}
-
-// start the game.
-// playGame();
+//when the reset button is clicked
+reset.addEventListener('click', function () {
+  game = newGame();
+});
 
 
 

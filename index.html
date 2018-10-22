@@ -5,43 +5,67 @@
   <meta charset="UTF-8">
   <title>Danielle's Guessing Game</title>
   <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
   <script src="../js/guessing-game.js" defer></script>
 </head>
 
 <body>
 
-  <div id="app">
-
-    <div class="center">
+  <div class='header'>
+    <div class="colorBackground"></div>
+    <div class="title">
       <h1>Play the Guessing Game!</h1>
-      <h3 id="subtitle">Guess a number between 1-100!</h3>
     </div>
 
-    <div id='guess-feedback' class='center'>
-      <h4></h4>
+    <div class='animalPic'>
+      <img src="pictures/bison.png" alt="">
+    </div>
+
+  </div>
+
+  <div id="app">
+
+    <div class="prompt">
+      <marquee behavior="scroll" direction="left">
+        <h3 id="subtitle">Guess a number between 1-100!</h3>
+      </marquee>
+
+    </div>
+
+    <div class="guessFeedbackDiv">
+      <div id='guess-feedback'>
+        <h4></h4>
+      </div>
+
+      <div>
+        <img id="guess-picture" src="#" alt="">
+      </div>
     </div>
 
     <div>
       <div id="input-parent">
-        <input class="center" id="player-input" maxlength='3'>
-        <button id="submit">Guess!</button>
+        <input class="center" id="player-input" maxlength='3' placeholder="Input # and press return.">
       </div>
-
-      <div class="guesses">
-        <ul id="guess-list">
-          <li class="guess">-</li>
-          <li class="guess">-</li>
-          <li class="guess">-</li>
-          <li class="guess">-</li>
-          <li class="guess">-</li>
-        </ul>
-      </div>
-
     </div>
 
+    <div class="guesses">
+      <ul id="guess-list">
+        <li id="guess1" class="guess"><img src="pictures/small-Bison.png" alt=""></li>
+        <li id="guess2" class="guess"><img src="pictures/small-Bison.png" alt=""></li>
+        <li id="guess3" class="guess"><img src="pictures/small-Bison.png" alt=""></li>
+        <li id="guess4" class="guess"><img src="pictures/small-Bison.png" alt=""></li>
+        <li id="guess5" class="guess"><img src="pictures/small-Bison.png" alt=""></li>
+      </ul>
+    </div>
+
+    <div id='hintBox'>
+      <h4 id="actualHint"> </h4>
+    </div>
+
+
     <div id="bottomButtons">
-      <button id="hintButton">Hint</button>
-      <button id="resetButton">Reset</button>
+      <button class='bottomButton' id="hintButton">Hint</button>
+      <button class='bottomButton' id="resetButton">Play Again</button>
     </div>
   </div>
 
@@ -49,7 +73,7 @@
 
   <div id="footer" class="center">
 
-    <div>
+    <div id='footer'>
       <h4>Developed by Danielle McCarthy.</h4>
     </div>
 
