@@ -50,7 +50,9 @@ class Game {
       }
     }
 
-    if (this.isLower() === true) {
+    if (this.winningNumber === this.playersGuess) {
+      imgSrc = "";
+    } else if (this.isLower() === true) {
       imgSrc = "Go higher."
     } else {
       imgSrc = "Go lower."
