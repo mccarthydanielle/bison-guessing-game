@@ -51,12 +51,18 @@ class Game {
     }
 
     if (this.isLower() === true) {
-      imgSrc = "Guess lower."
+      imgSrc = "Go higher."
     } else {
-      imgSrc = "Guess higher"
+      imgSrc = "Go lower."
     }
 
-    document.querySelector('#guess-feedback > h4').innerHTML = `${feedbackText}`;
+    console.log(this.winningNumber);
+    console.log(imgSrc);
+
+    document.querySelector('#guess-feedback > h4').innerHTML = `${feedbackText}
+
+
+    ${imgSrc}`;
     document.querySelector(`#guess-list li:nth-child(${this.pastGuesses.length})`).innerHTML = this.playersGuess
 
     return feedbackText;

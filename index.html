@@ -3,9 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Danielle's Guessing Game</title>
   <link rel="stylesheet" href="main.css">
   <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <script src="../js/guessing-game.js" defer></script>
 </head>
 
@@ -22,8 +24,8 @@
     </div>
 
     <div class="myFeedback">
-      <div id='guess-feedback' class="talk-bubble tri-right round border right-top">
-        <h4 class="talktext">You're getting hot!</h4>
+      <div id='guess-feedback' class="talk-bubble tri-right round right-in">
+        <h4 class="talktext"></h4>
       </div>
     </div>
 
@@ -40,7 +42,7 @@
 
     <div>
       <div id="input-parent">
-        <input class="center" id="player-input" maxlength='3' placeholder="Input # and press return.">
+        <input class="guessInput" id="player-input" maxlength='3' type="number" placeholder="Input # and press return.">
       </div>
     </div>
 

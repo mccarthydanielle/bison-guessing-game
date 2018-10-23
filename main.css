@@ -6,6 +6,13 @@ body {
   margin: 10px;
 }
 
+/* making images responsive */
+img {
+  max-width: 100%;
+}
+
+/* header styling */
+
 .colorBackground {
   /* background-color: #d9e840; */
   background-image:
@@ -44,83 +51,97 @@ top: 75px;
 margin: auto;
 font-size: 35px;
 }
+
 /* talk bubble stuff */
 
+.myFeedback h4:empty {
+  display: none;
+}
+
+.prompt{
+  color: #444444;
+}
+
+ /* styling input guess box */
+
+.guessInput {
+  border: 1px solid rgba(68, 68, 68, .5);
+  border-radius: 4px;
+  width: 15%;
+  height: 30px;
+  text-align: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input:focus {
+  outline-color: #d9e840;
+}
+
+/* end of styling input guess box */
+
 /* CSS talk bubble */
+
+
 .talk-bubble {
-  margin-top: 220px;
-  left: 390px;
+  margin-top: 200px;
+  left: 340px;
   display: inline-block;
   position: absolute;
 	width: 200px;
 	height: auto;
-	background-color: lightyellow;
+	background-color: purple;
 }
 
-.talk-bubble:empty {
-  display:none;
-}
-.border{
-  border: 8px solid #666;
-}
 .round{
-  border-radius: 30px;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-
+  border-radius: 10px;
 }
 
-/* Right triangle placed top right flush. */
-.tri-right.border.right-top:before {
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-  left: auto;
-	right: -40px;
-  top: -8px;
-	bottom: auto;
-	border: 32px solid;
-	border-color: #666 transparent transparent transparent;
-}
-
-.tri-right.right-top:after{
-	content: ' ';
+.tri-right.right-in > h4:before {
+	content: '';
 	position: absolute;
 	width: 0;
 	height: 0;
   left: auto;
 	right: -20px;
-  top: 0px;
+  top: 38px;
 	bottom: auto;
-	border: 20px solid;
-	border-color: lightyellow transparent transparent transparent;
+	border: 12px solid;
+	border-color: purple transparent transparent purple;
 }
 
+/* talk bubble contents */
+.talktext{
+  padding: 10px;
+	text-align: center;
+  line-height: 1.5em;
+  color: white;
+}
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}
 
 /* end of talk bubble stuff */
+
+/* entire page */
+
 #app {
 margin-top: 300px;
-margin-bottom: 50px;
+margin-bottom: 0px;
 display: flex;
 flex-direction: column;
 }
 
-#guess-feedback h4{
-  height: 20px;
-  font-size: 16px;
-  text-align: center;
-}
-
-/* #guess-feedback h4:empty  {
-  display:none;
-} */
-
-
-
+/* user guesses styling */
 
 .guesses {
-  height: 200px;
+  height: 150px;
 }
 
 #guess-list {
@@ -133,6 +154,8 @@ flex-direction: column;
 
 .guess {
  list-style-type: none;
+ font-family: 'Press Start 2P', cursive;
+ text-decoration: underline;
  font-size: 35px;
  flex: 1;
  align-self: center;
@@ -154,15 +177,35 @@ flex-direction: column;
   border: none;
   height: max-content;
   width: max-content;
-  height: 21px;
+  height: 22px;
   margin-right: auto;
   margin-left: auto;
 }
 
-#bottomButtons{
+.bottomButton{
 margin:0;
-
+padding:0;
+color: #444444;
+background: #F3F3F3;
+border: 1px #DADADA solid;
+padding: 5px 10px;
+border-radius: 2px;
+font-weight: bold;
+font-size: 9pt;
+outline: none;
 }
+
+.bottomButton:hover{
+  border: 1px #d9e840 solid;
+  box-shadow: 1px 1px 1px #EAEAEA;
+  color: #333333;
+  background: #F7F7F7;
+}
+
+.bottomButton:active{
+    box-shadow: inset 1px 1px 1px #DFDFDF;
+}
+
 
 
 #footer h4 {
@@ -172,5 +215,6 @@ margin:0;
   width: 100%;
   padding: 0;
   margin: 0px;
+  margin-top:20px;
 }
 
